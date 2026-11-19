@@ -304,7 +304,10 @@ CorrelationResult correlation_dimension(const Embedding& emb, double r_min, doub
         syy += out.log_c[k] * out.log_c[k];
         ++nfit;
     }
-    if (nfit >= 3) {
+    if (nfit < 3) {
+        throw std::runtime_error("correlation_dimension: fewer than 3 finite scaling points");
+    }
+    {
         const double denom = static_cast<double>(nfit) * sxx - sx * sx;
         if (std::fabs(denom) > 1e-300) {
             out.d2 = (static_cast<double>(nfit) * sxy - sx * sy) / denom;

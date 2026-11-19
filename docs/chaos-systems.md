@@ -51,7 +51,7 @@ $\lambda>0$ 表示指数分离；**Lyapunov 时间** $\tau_L=1/\lambda$ 是可�
 
 $n$ 维系统有 $n$ 个 Lyapunov 指数 $\lambda_1\ge\lambda_2\ge\cdots\ge\lambda_n$：
 
-- 连续自治流总有一个零指数（沿轨道方向）；
+- 对非平衡的周期/混沌轨道，连续自治流通常有一个零指数（沿轨道方向）；不动点要单独看线性化；
 - 耗散系统 $\sum_i\lambda_i<0$；
 - 若 $\lambda_1>0$ 且系统有界，则通常出现奇怪吸引子。
 
@@ -422,7 +422,7 @@ q_c(n)=\sum_{j=0}^{n}\phi(j)\sin(jc),
 $$
 
 $$
-M_c(n)=\lim_{N\to\infty}\frac1N\sum_{j=0}^{N-n}
+M_c(n)=\lim_{N\to\infty}\frac1N\sum_{j=0}^{N-n-1}
 \bigl[(p_c(j+n)-p_c(j))^2+(q_c(j+n)-q_c(j))^2\bigr],
 $$
 

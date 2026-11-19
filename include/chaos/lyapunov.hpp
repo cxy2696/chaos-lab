@@ -56,7 +56,7 @@ struct RosensteinResult {
 // Rosenstein, Collins & De Luca (1994), for a scalar, evenly sampled series.
 // Theiler window and tau are measured in samples; dt is the sample interval.
 // fit_begin/fit_end select the linear part of the divergence curve; leave
-// either negative to use an automatic plateau search.
+// both negative to use the automatic plateau search.
 RosensteinResult rosenstein_lyapunov(const std::vector<double>& series, int m,
                                      int tau, int theiler, int max_k,
                                      double dt = 1.0, int fit_begin = -1,

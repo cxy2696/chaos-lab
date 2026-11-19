@@ -148,6 +148,9 @@ SindyModel sindy_fit(const std::vector<State>& X, const std::vector<State>& dX,
     const std::size_t p = terms.size();
     Matrix theta(n, p);
     for (std::size_t i = 0; i < n; ++i) {
+        if (X[i].size() != dim || dX[i].size() != dim) {
+            throw std::invalid_argument("sindy_fit: inconsistent state dimension");
+        }
         for (std::size_t j = 0; j < p; ++j) theta(i, j) = eval_term(terms[j], X[i]);
     }
 

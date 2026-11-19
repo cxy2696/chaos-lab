@@ -198,7 +198,7 @@ RosensteinResult rosenstein_lyapunov(const std::vector<double>& series,
 
 - `series` 等间隔采样，`dt` 是采样间隔；`tau`、`theiler` 以样本计。
 - **返回的是 $\lambda$，不是斜率**。实现内部用 `slope/dt`；不要在外面再除以 `tau*dt`。
-- 自动拟合窗口会找一个“长、正斜率、近似线性”的区间；对 Hénon 这类快速饱和的数据，自动窗口可能偏保守，建议手动看 `divergence` 曲线并指定 `fit_begin/fit_end`。
+- 自动拟合窗口会找一个“长、正斜率、近似线性”的区间；对 Hénon 这类快速饱和的数据，自动窗口可能偏保守，建议手动看 `divergence` 曲线并同时指定 `fit_begin/fit_end`。两者要么都省略（自动），要么同时给出；只给一个会抛异常。
 - 近邻搜索是 $O(N^2)$；N 很大时需 KD-tree（本库未实现）。
 
 ## 6. 相空间重构与非线性指标

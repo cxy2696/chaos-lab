@@ -202,8 +202,9 @@ LyapunovSpectrum lyapunov_spectrum_map(const MapSystem& map, State x0,
 
 double lyapunov_max_two_trajectories(const OdeSystem& sys, State x0, double d0,
                                      double h, double transient, double duration) {
-    if (!(d0 > 0.0) || !(h > 0.0)) {
-        throw std::invalid_argument("two-trajectory Lyapunov: d0 and h must be positive");
+    if (!(d0 > 0.0) || !(h > 0.0) || transient < 0.0 || !(duration > 0.0)) {
+        throw std::invalid_argument(
+            "two-trajectory Lyapunov: d0, h, duration positive and transient >= 0");
     }
     if (!sys.rhs || sys.dim <= 0) {
         throw std::invalid_argument("two-trajectory Lyapunov: invalid system");
@@ -335,9 +336,15 @@ RosensteinResult rosenstein_lyapunov(const std::vector<double>& series, int m, i
     const std::size_t K = result.k.size();
     std::size_t a = 0;
     std::size_t b = K - 1;
-    if (fit_begin >= 0 && fit_end >= 0 &&
-        static_cast<std::size_t>(fit_end) < K &&
-        fit_end > fit_begin) {
+    const bool has_fit = fit_begin >= 0 || fit_end >= 0;
+    if (has_fit &&
+        !(fit_begin >= 0 && fit_end >= 0 && fit_end > fit_begin &&
+          static_cast<std::size_t>(fit_end) < K)) {
+        throw std::invalid_argument(
+            "rosenstein_lyapunov: provide both fit_begin and fit_end, "
+            "with 0 <= fit_begin < fit_end < K, or leave both negative");
+    }
+    if (has_fit) {
         a = static_cast<std::size_t>(fit_begin);
         b = static_cast<std::size_t>(fit_end);
     } else if (K >= 10) {
