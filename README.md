@@ -207,4 +207,4 @@ python3 scripts/plot_figures.py            # 需要 Pillow
 ## 最后
 文献条目在 `references/references.bib`。
 
-> 另外提醒一句：仓库里的 Logistic/猫映射代码不要拿去做真实加密。有限精度会让序列退化，已经有很多“混沌图像加密”方案被攻破，`docs/chaos-systems.md` 的 7.7 节引了例子。
+> 仓库里的 Logistic/猫映射代码不要拿去做真实加密。有限精度会让序列退化，已经有很多“混沌图像加密”方案被攻破，`docs/chaos-systems.md` 的 7.7 节引了例子。
