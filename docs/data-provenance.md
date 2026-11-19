@@ -71,14 +71,14 @@ docs/chaos-systems.md（理论、公式、引用 [n]）
 
 | 断言 | 文献值 | 本仓库实测 | 类型 | 复现/测试 |
 |---|---|---|---|---|
-| Logistic $r=4$ 的 $\lambda$ | $\ln2=0.693147$ | $0.693149$ | 数值 | `test_core.cpp::logistic_lyapunov_known_values`；$10^6$ 次迭代 |
+| Logistic $r=4$ 的 $\lambda$ | $\ln2=0.693147$ | $0.693149$ | 数值 | `test_core.cpp::logistic_lyapunov_known_values`； $10^6$ 次迭代 |
 | Feigenbaum $\delta$ | $4.669201609$ | $4.669157$ | 数值 | `scripts/feigenbaum.py`；超稳定周期 $2^k$ |
 | Logistic 倍周期累积点 | $r_\infty=3.569945672$ | 由 $\lambda$ 变号与周期窗口定位 | 数值 | `logistic_lyapunov.csv`、`logistic_bifurcation.csv` |
 | Lorenz $\lambda$ 谱 | $(0.906,0,-14.57)$ [9,17] | $(0.9101,-0.0043,-14.5724)$ | 数值 | `lyapunov --system lorenz --h 0.01 --transient 50 --duration 500` |
-| Lorenz 维数 | $\approx2.06$ [9,24] | $D_2=2.047$；$D_{KY}=2.062$ | 数值 | `dimension ... --m 3 --tau 17`；$D_{KY}$ 由谱计算 |
+| Lorenz 维数 | $\approx2.06$ [9,24] | $D_2=2.047$； $D_{KY}=2.062$ | 数值 | `dimension ... --m 3 --tau 17`； $D_{KY}$ 由谱计算 |
 | Hénon $\lambda$ | $(0.419,-1.623)$ [11,17] | $(0.4206,-1.6246)$ | 数值 | `lyapunov --map henon --n 100000` |
 | Hénon $D_2$ | $\approx1.21$ [24] | 自动 $1.156$；手动尺度 $1.211$ | 数值 | `test_analysis.cpp`（两种设置） |
-| Rössler $\lambda_1$ | $\approx0.071$（$a=b=0.2,c=5.7$） | $0.0790$ | 数值 | `lyapunov --system rossler` |
+| Rössler $\lambda_1$ | $\approx0.071$（ $a=b=0.2,c=5.7$） | $0.0790$ | 数值 | `lyapunov --system rossler` |
 | Chua 双涡卷 | 正 $\lambda_1$ [13] | $0.4247$ | 数值 | `lyapunov --system chua` |
 | 三体 8 字周期 | $T=6.32591398$ [14] | 一个周期后回到初值 $2.0\times10^{-4}$ | 数值 | `test_core.cpp::three_body_figure_eight_periodic` |
 | 0-1 检验 Lorenz | $K\approx1$ [28] | 降采样后 $0.9905$；原采样 $-0.274$ | 数值/采样陷阱 | `zeroone ... --stride 10`；见 §5 |
@@ -118,33 +118,33 @@ docs/chaos-systems.md（理论、公式、引用 [n]）
 
 ### 4.1 积分
 
-- Lorenz/Rössler/Chua：RK4，$h=0.01$；瞬态 50（Lorenz/Rössler/Chua 谱）。
-- 三体：RK4，$h=0.002$；能量漂移 $<10^{-12}$。
-- 双摆：RK4，$h=0.001$；20 秒能量漂移 $<10^{-9}$。
-- 辛积分器测试：Verlet/Yoshida4，$h=0.01$，10000 步；Yoshida 能量漂移 $<10^{-9}$。
+- Lorenz/Rössler/Chua：RK4， $h=0.01$；瞬态 50（Lorenz/Rössler/Chua 谱）。
+- 三体：RK4， $h=0.002$；能量漂移 $<10^{-12}$。
+- 双摆：RK4， $h=0.001$；20 秒能量漂移 $<10^{-9}$。
+- 辛积分器测试：Verlet/Yoshida4， $h=0.01$，10000 步；Yoshida 能量漂移 $<10^{-9}$。
 
 ### 4.2 Lyapunov
 
 - Benettin：解析 Jacobian；每步重正交化；瞬态 30–50，统计窗口 120–500。
 - Hénon：1000 次瞬态，100000 次迭代；每步 QR。
-- Rosenstein：Lorenz $m=3,\tau=17$、Theiler=100、`max_k=300`、$dt=0.01$；自动拟合窗口 $k\in[148,297]$。
-- Hénon Rosenstein：$m=2,\tau=1$、Theiler=10、手动拟合 $k=0..10$。
+- Rosenstein：Lorenz $m=3,\tau=17$、Theiler=100、`max_k=300`、 $dt=0.01$；自动拟合窗口 $k\in[148,297]$。
+- Hénon Rosenstein： $m=2,\tau=1$、Theiler=10、手动拟合 $k=0..10$。
 
 ### 4.3 嵌入与 GP
 
-- Lorenz：$m=3$，$\tau=17$（AMI 第一极小），Theiler=50，60 个半径，拟合分位 0.2–0.8。
-- Hénon：$m=2,\tau=1$，Theiler=10；自动范围给出 1.156，手动尺度给出 1.211。
+- Lorenz： $m=3$， $\tau=17$（AMI 第一极小），Theiler=50，60 个半径，拟合分位 0.2–0.8。
+- Hénon： $m=2,\tau=1$，Theiler=10；自动范围给出 1.156，手动尺度给出 1.211。
 - GP 自动半径：取距离分布的 0.005%–0.3% 分位（至少 100 对），这只是**起点**；必须检查局部斜率平台。
 
 ### 4.4 0-1 检验
 
-- Logistic：4000 点，$c$ 在 $(\pi/5,4\pi/5)$ 随机，64 个 $c$，取中位数。
-- Lorenz：原始 $dt=0.01$ 给 $K\approx-0.274$；`--stride 10`（$dt=0.1$）给 $K\approx0.9905$。这不是库的“不稳定”，而是 0-1 检验对过采样的已知敏感性；见理论文档 §5.5。
-- 正弦：$K\approx-0.002$。
+- Logistic：4000 点， $c$ 在 $(\pi/5,4\pi/5)$ 随机，64 个 $c$，取中位数。
+- Lorenz：原始 $dt=0.01$ 给 $K\approx-0.274$；`--stride 10`（ $dt=0.1$）给 $K\approx0.9905$。这不是库的“不稳定”，而是 0-1 检验对过采样的已知敏感性；见理论文档 §5.5。
+- 正弦： $K\approx-0.002$。
 
 ### 4.5 RQA
 
-- Lorenz：先 `--stride 10` 降采样，$m=3,\tau=3$，Theiler=5，目标 RR=3%，$\epsilon=3.20195$。
+- Lorenz：先 `--stride 10` 降采样， $m=3,\tau=3$，Theiler=5，目标 RR=3%， $\epsilon=3.20195$。
 - 结果：RR=2.96%，DET=0.691，LAM=0.293，ENTR=2.039 nat，TT=2.044，Lmax=73。
 - 注意：DET/LAM 依赖 $\epsilon$ 和 Theiler；不要跨不同设置直接比较。
 

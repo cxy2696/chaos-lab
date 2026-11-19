@@ -10,7 +10,7 @@
 | `lorenz_series.csv` | 8000 | Lorenz 同参数，丢弃前 50 个时间单位，用于嵌入/GP/Rosenstein |
 | `rossler_trajectory.csv` | 8000 | Rössler $a=b=0.2,c=5.7$ |
 | `chua_trajectory.csv` | 10000 | Chua 双涡卷 |
-| `three_body_figure_eight.csv` | 7000 | 8 字三体，$h=0.001$ |
+| `three_body_figure_eight.csv` | 7000 | 8 字三体， $h=0.001$ |
 | `double_pendulum.csv` | 5000 | 双摆角度/角速度 |
 | `henon_orbit.csv` | 5000 | Hénon 映射轨道 |
 | `logistic_orbit.csv` | 2000 | Logistic $r=4$ 轨道 |

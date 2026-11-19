@@ -235,7 +235,7 @@ FnnResult false_nearest_neighbors(const std::vector<double>&, int max_m, int tau
                                   double atol = 0.0);
 ```
 
-判据：$|x_{i+m\tau}-x_{j+m\tau}|/\|\mathbf X_i-\mathbf X_j\|_m>rtol$ 记为假近邻。复杂度 $O(N^2\cdot max\_m)$。
+判据： $|x_{i+m\tau}-x_{j+m\tau}|/\|\mathbf X_i-\mathbf X_j\|_m>rtol$ 记为假近邻。复杂度 $O(N^2\cdot max\_m)$。
 
 ### 6.4 关联维（GP）
 
@@ -283,7 +283,7 @@ ZeroOneResult zero_one_test(const std::vector<double>&, int n_c = 64,
                             std::uint64_t seed = ...);
 ```
 
-$K\approx0$ 规则，$K\approx1$ 混沌。**采样间隔至关重要**：过采样可能让混沌序列给出 $K\approx0$（见理论文档 §5.5）。先降采样到与相关时间相当的间隔。
+$K\approx0$ 规则， $K\approx1$ 混沌。**采样间隔至关重要**：过采样可能让混沌序列给出 $K\approx0$（见理论文档 §5.5）。先降采样到与相关时间相当的间隔。
 
 ### 7.4 RQA
 
@@ -335,7 +335,7 @@ OgyResult ogy_control_1d(const std::function<double(double,double)>& map,
                          double x0, const OgyOptions&);
 ```
 
-`lambda_u = ∂f/∂x`，`g = ∂f/∂p` 在目标点取值。控制律 $\delta p=-\lambda_u(x-x^*)/g$，仅在邻域内、且受 `dp_max` 限制。
+`lambda_u = ∂f/∂x`，`g = ∂f/∂p` 在目标点取值。控制律 $\delta p=-\lambda_u(x-x^{\ast})/g$，仅在邻域内、且受 `dp_max` 限制。
 
 ### 9.2 Pyragas（映射）
 
@@ -357,7 +357,7 @@ SyncResult pecora_carroll_lorenz(const Lorenz&, const State& drive0,
                                  double t_transient = 5, double t_total = 40);
 ```
 
-`drive0` 三维，`response0` 两维（$y,z$）。同步判据是最终误差 $<10^{-6}$；`settling_time` 是最后一次进入 $10^{-6}$ 后的连续时间。
+`drive0` 三维，`response0` 两维（ $y,z$）。同步判据是最终误差 $<10^{-6}$；`settling_time` 是最后一次进入 $10^{-6}$ 后的连续时间。
 
 ### 9.4 SINDy
 

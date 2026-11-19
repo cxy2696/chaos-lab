@@ -112,7 +112,7 @@ if (chaos_lorenz_lyapunov(10, 28, 8.0/3, x0, 0.01, 50, 500, exponents) == 0) {
   --out data/logistic_lyapunov.csv
 ```
 
-看 $\lambda$ 在哪里由负变正、$r=4$ 是否接近 0.693、周期 3 窗口里 $\lambda$ 是否又变负。
+看 $\lambda$ 在哪里由负变正、 $r=4$ 是否接近 0.693、周期 3 窗口里 $\lambda$ 是否又变负。
 
 **Lorenz 谱**
 
@@ -133,7 +133,7 @@ if (chaos_lorenz_lyapunov(10, 28, 8.0/3, x0, 0.01, 50, 500, exponents) == 0) {
   --m 3 --tau 17 --theiler 100 --max-k 300 --dt 0.01
 ```
 
-我这边得到的 $\tau=17$、$m=3$、$D_2=2.047$、$\lambda_{\max}=0.855$。你跑出来如果有小差别，先看步长和拟合区间，不一定是代码错了。
+我这边得到的 $\tau=17$、 $m=3$、 $D_2=2.047$、 $\lambda_{\max}=0.855$。你跑出来如果有小差别，先看步长和拟合区间，不一定是代码错了。
 
 ## 图
 
