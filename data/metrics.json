@@ -1,0 +1,156 @@
+{
+  "schema": 1,
+  "library_version": "0.1.0",
+  "generated": "2026-11-19",
+  "notes": "Values measured with the commands listed in docs/data-provenance.md; they are not literature values.",
+  "measurements": {
+    "logistic_lambda_r4": 0.693149,
+    "feigenbaum_delta_last": 4.669157182,
+    "feigenbaum_r_infinity_reference": 3.569945672,
+    "lorenz_lyapunov_spectrum": [
+      0.910064,
+      -0.004271,
+      -14.572357
+    ],
+    "lorenz_lyapunov_sum": -13.666564,
+    "lorenz_divergence": -13.666667,
+    "lorenz_correlation_dimension": 2.04662,
+    "lorenz_gp_fit_r2": 0.999931,
+    "lorenz_gp_radius_range": [
+      0.105461,
+      0.820631
+    ],
+    "lorenz_rosenstein_lambda": 0.855017,
+    "lorenz_zero_one_k_stride10": 0.990549,
+    "lorenz_rqa": {
+      "epsilon": 3.20195,
+      "rr": 0.0296232,
+      "det": 0.691293,
+      "lam": 0.293427,
+      "entropy_nats": 2.03944,
+      "trapping_time": 2.04445,
+      "longest_diagonal": 73
+    },
+    "henon_lyapunov_spectrum": [
+      0.420636,
+      -1.624609
+    ],
+    "henon_lyapunov_sum": -1.203973,
+    "henon_log_b": -1.203973,
+    "rossler_lyapunov_spectrum": [
+      0.079038,
+      0.000406,
+      -5.417134
+    ],
+    "chua_lyapunov_spectrum": [
+      0.424696,
+      -0.007094,
+      -4.217896
+    ],
+    "three_body_period_return_distance": 0.0002026,
+    "synchronization": {
+      "final_error": 0.0,
+      "max_error_after_transient": 0.000125347,
+      "settling_time": 7.58
+    },
+    "sindy_terms": 10,
+    "sindy_active_terms": 7
+  },
+  "data_files": [
+    {
+      "name": "lorenz_trajectory.csv",
+      "rows": 6000,
+      "sha256": "cd23ed723a8ba9f8c7cd87ac9426f1231df389ae496fc6ba51a006644f78e507"
+    },
+    {
+      "name": "lorenz_series.csv",
+      "rows": 8000,
+      "sha256": "2f239b543c3bb95fe3e1c22642fb0e79d3288db086d0bd94bf888df16976812c"
+    },
+    {
+      "name": "rossler_trajectory.csv",
+      "rows": 8000,
+      "sha256": "b53c598062219d3df0e211f6667649e4297a786474240914a33a405504618c7e"
+    },
+    {
+      "name": "chua_trajectory.csv",
+      "rows": 10000,
+      "sha256": "852af60b61c758f4158d0c6b3bc0019426f00635892ab6072b4ec0cdfa35de3e"
+    },
+    {
+      "name": "three_body_figure_eight.csv",
+      "rows": 7000,
+      "sha256": "a95f26a0e8f097e3784d74a8194f90bb007b38fdc06811c3973e23693a2e233d"
+    },
+    {
+      "name": "double_pendulum.csv",
+      "rows": 5000,
+      "sha256": "001def90da2407fb62a47fd80fbdc8489c66ceae6c3c91085048527a8f201a2b"
+    },
+    {
+      "name": "henon_orbit.csv",
+      "rows": 5000,
+      "sha256": "f99e54397562cfd9761a9ee04cc25d2592d7190c78db5287793942d51ae0d862"
+    },
+    {
+      "name": "logistic_orbit.csv",
+      "rows": 2000,
+      "sha256": "4344438dc2e676faa070f0397f1942283313508d61a7aa1418f89b6dfd7f05ee"
+    },
+    {
+      "name": "logistic_bifurcation.csv",
+      "rows": 120000,
+      "sha256": "242c67cc2e9da18b83ada194b42f941b5da720f9200143964754cd419c49d201"
+    },
+    {
+      "name": "logistic_lyapunov.csv",
+      "rows": 1500,
+      "sha256": "35454c95b9cdd2c24623c7f912f180625d9015ac669b7f7998ba5f7b440fbb9c"
+    },
+    {
+      "name": "lorenz_poincare.csv",
+      "rows": 240,
+      "sha256": "0b531a05ea6b318bed09299fcfad0e5687524bb98ef0011a3fe70e790485dbef"
+    },
+    {
+      "name": "lorenz_gp.csv",
+      "rows": 60,
+      "sha256": "8b7267d4ce6ee2dcd08a42c531406705f6678ec9ab02911c504a1932490a2c9a"
+    },
+    {
+      "name": "lorenz_rosenstein.csv",
+      "rows": 301,
+      "sha256": "f29120ecbd9db4ddaa82920a7e186f5eefa48e382ee25708f1bb86363dd688df"
+    },
+    {
+      "name": "lorenz_spectrum.csv",
+      "rows": 4097,
+      "sha256": "778eed30dda5cdb007ea1b80e9ed92fe88c48daaa8cd8982bc0fff79d61294a1"
+    },
+    {
+      "name": "lorenz_rqa_matrix.csv",
+      "rows": 794,
+      "sha256": "7189e09941996f5e7870ac909bc0dd4d02d16c141f961269b2054d70f9d7d25d"
+    },
+    {
+      "name": "lorenz_zeroone.csv",
+      "rows": 64,
+      "sha256": "69895b60d796d6063a08c98c9c35a1b5be8304a78dfc0ce6e063e80b12b20516"
+    },
+    {
+      "name": "lorenz_sindy.csv",
+      "rows": 10,
+      "sha256": "c7d0243b35ab40f951e139f2b747de25ae28ef85da383ab52035e692816ff4b8"
+    },
+    {
+      "name": "lorenz_sync_error.csv",
+      "rows": 8001,
+      "sha256": "117963325d6086121bb3c78dc530a0d6b264c36f134d7e009778f04a1cd0478e"
+    },
+    {
+      "name": "feigenbaum.csv",
+      "rows": 8,
+      "sha256": "bfa368effd7161d178f7e7bb078da4795835d29796767ddec6602b5c2400f367"
+    }
+  ]
+}
